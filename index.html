@@ -1,0 +1,77 @@
+<html>
+
+<head>
+
+    <title> StopWatch </title>
+    <style>
+        .buttons {
+            display: flex;
+            justify-content: space-evenly;
+            background-color: lightblue;
+            padding: 30px
+        }
+
+        button {
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        button:hover {
+            background-color: lightgrey
+        }
+
+        #time {
+            background-color: yellow;
+            width: fit-content;
+            padding: 10px;
+            margin-left: 49%;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="buttons">
+        <button onclick="start()"> Start </button>
+        <button onclick="stop()"> Stop </button>
+        <button onclick="reset()"> Reset </button>
+    </div>
+
+    <div style="text-align: center">
+        <h1> Stop Watch </h1>
+
+        <h2 id="time"> 1 </h2>
+    </div>
+
+    <script>
+        var interval;
+
+        function increaseNumber()
+        {
+            var a = document.getElementById("time").innerText;
+           
+            a = parseInt(a)+1
+            document.getElementById("time").innerText = a
+
+        }
+        function start(){
+                // Function that will take another function as parameter and a time in miliseconds and it will run the given function after the given interval of time continuoulsy
+              interval=  setInterval(increaseNumber, 1000)
+        }
+
+        function stop(){
+            clearInterval(interval);
+        }
+        function reset(){
+            clearInterval(interval);
+            document.getElementById("time").innerText = "1"
+        }
+
+    </script>
+</body>
+
+
+
+</html>
